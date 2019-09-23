@@ -15,6 +15,6 @@ from wtforms.validators import Required
 class PitchForm(FlaskForm):
 
     title = StringField('pitch title',validators=[Required()])
-    content = TextAreaField('Movie review', validators=[Required()])
+    content = TextAreaField('Pitch here', validators=[Required()])
     # category = RadioField('Label', choices=[ ('promotionpitch','promotionpitch'), ('interviewpitch','interviewpitch'),('pickuplines','pickuplines'),('productpitch','productpitch')],validators=[Required()])
     submit = SubmitField('Submit')
