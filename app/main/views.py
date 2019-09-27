@@ -21,9 +21,13 @@ def index():
 
     
     title = 'Home - Welcome to The best Movie Review Website Online'
+    pitch =  Pitch.query.filter_by().first()
+    Religion = Pitch.query.filter_by(category="Religion")
+    Politics = Pitch.query.filter_by(category="Politics")
+    Business = Pitch.query.filter_by(category="Business")
+    Innovation = Pitch.query.filter_by(category="Innovation")
 
-    
-    return render_template('index.html', title = title )
+    return render_template('index.html', title = title , Religion = Religion ,Politics = Politics ,Business = Business , Innovation = Innovation )
 
 
 # @main.route('/movie/<int:id>')
@@ -78,12 +82,12 @@ def new_pitch():
    form = PitchForm()
    # my_upvotes = Upvote.query.filter_by(pitch_id = Pitch.id)
    if form.validate_on_submit():
-       description = form.description.data
-       title = form.title.data
+    #    description = form.description.data
+       content = form.content.data
        user_id = current_user
        category = form.category.data
        print(current_user._get_current_object().id)
-       new_pitch = Pitch(user_id =current_user._get_current_object().id, title = title,description=description,category=category)
+       new_pitch = Pitch(user_id =current_user._get_current_object().id, content = content , category = category)
        db.session.add(new_pitch)
        db.session.commit()
        return redirect(url_for('main.index'))

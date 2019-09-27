@@ -55,8 +55,8 @@ class Role(db.Model):
     users = db.relationship('User',backref='roles',lazy="dynamic")
 
 
-    def __repr__(self):
-        return f'User {self.name}'        
+    # def __repr__(self):
+    #     return f'User {self.name}'
 
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
@@ -93,9 +93,11 @@ class User(UserMixin,db.Model):
 class Pitch(db.Model):
     __tablename__ = 'pitch'
     id = db.Column(db.Integer,primary_key = True)
-    pitch = db.Column(db.String(255))
+    content = db.Column(db.String(255))
     # upvote = db.Column(db.String(255))
     # downvote = db.Column(db.String(255))
+    category = db.Column(db.String(255))
+
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
 
     @classmethod
