@@ -3,7 +3,7 @@
  -Github:je-ss-y
 
 ## Description
-In context, your parents are busy workers and they get home really late. They always miss the news and they are very frustrated since they can't keep up with current affairs. You are a developer and will use your skills and prowess to remedy this problem. This application  will help them list and preview news articles from various sources
+In context, your friends and peers are busy with their work , they also happen to have very interesting ideas and opinions about different aspects of life such as religious , political, business and overall innovation. pitch 2.0 is a revolutionnary one minute pitch platform to help you pitch and share ideas with everyone around the globe with similar interest
 
 ## Technologies used
     - Python 3.6
