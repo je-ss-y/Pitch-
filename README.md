@@ -10,3 +10,29 @@ In context, your parents are busy workers and they get home really late. They al
     - HTML
     - CSS
     - Bootstrap
+
+
+## BDD
+### Input
+
+   -Sign in 
+   -Search of news
+   -Review
+
+### Output
+
+    -Personal Profile
+    -News sources
+    -Links to articles
+    -Review
+
+
+
+
+## Know bugs
+ No bugs known
+
+
+ ## License
+
+ This product is strictly non-commercial
