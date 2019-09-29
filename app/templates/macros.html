@@ -2,16 +2,19 @@
 {% macro displayCatList(category_list) %}
 
     {% for category in category_list %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
-            <p class="text-center">
+        <!-- <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+            <p class="text-center"> -->
+                <h3>Description</h3>
                 <p href="/category/{{category.id}}">
-                    {{ category.content|truncate(10)}}</p>
+                        {{  category.description}}</p>
+                 </p>
+                 <h3>Pitch</h3>
+                <p href="/category/{{category.id}}">
+                    {{   category.content|truncate(10)}}</p>
                 </p>
 
-                <p href="/category/{{category.id}}">
-                    {{ category.description}}</p>
-                </p>
-        </div>
+               
+        <!-- </div> -->
 
     {% endfor %}
 
