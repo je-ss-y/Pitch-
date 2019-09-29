@@ -17,33 +17,32 @@ from . import login_manager
 
 
 
-# class Review:
+# class Comment(db.Model):
 
-#     all_reviews = []
+#     all_comments = []
 
-#     def __init__(self,movie_id,title,imageurl,review):
+#     def __init__(self,description,content,comment):
 #         self.pitch_id = pitch_id
-#         self.title = title
-#         # self.imageurl = imageurl
-#         self.review = review
+#         self.description = description
+#         self.comment = comment
 
 
-#     def save_review(self):
-#         Review.all_reviews.append(self)
+#     def save_comment(self):
+#         Comment.all_comments.append(self)
 
 
 #     @classmethod
-#     def clear_reviews(cls):
-#         Review.all_reviews.clear()
+#     def clear_comment(cls):
+#         Comment.all_comments.clear()
 
 #     @classmethod
-#     def get_reviews(cls,id):
+#     def get_(cls,id):
 
 #         response = []
 
-#         for review in cls.all_reviews:
-#             if review.pitch_id == id:
-#                 response.append(review)
+#         for Comment in cls.all_comments:
+#             if comment.comment_id == id:
+#                 response.append(comment)
 
 #         return response
 

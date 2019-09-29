@@ -44,25 +44,25 @@ def index():
 #     return render_template('search.html',movies = searched_movies)
 
 
-# @main.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
+# @main.route('/pitches/comment/new/<int:id>', methods = ['GET','POST'])
 # @login_required
-# def new_review(id):
+# def new_comment(id):
 
-#     form = ReviewForm()
+#     form = CommentForm()
 
-#     movie = get_movie(id)
+#     # pitch = get_movie(id)
 
 #     if form.validate_on_submit():
-#         title = form.title.data
-#         review = form.review.data
+#         description = form.description.data
+#         comment = form.comment.data
 
-#         new_review = Review(movie.id,title,movie.poster,review)
-#         new_review.save_review()
+#         new_comment = Comment(title,description, content ,review)
+#         new_comment.save_comment()
 
-#         return redirect(url_for('.movie',id = movie.id ))
+#         # return redirect(url_for('.movie',id = movie.id ))
 
-#     title = f'{movie.title} review'
-#     return render_template('new_review.html',title = title, review_form=form, movie=movie)
+#     description = f'{pitch.description} comment'
+#     return render_template('new_comment.html',title = title, comment_form=form, pitch=pitch)
 
 @main.route('/pitches/new/', methods = ['GET','POST'])
 @login_required

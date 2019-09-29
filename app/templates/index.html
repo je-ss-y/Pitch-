@@ -21,6 +21,13 @@
     </form>
 
 </div>
+<div class="container">
+    <form>
+        <input type="text" name="comment_query" placeholder="Post your comment" class="form-control">
+        <input type="submit"  value="Submit" class="btn btn-info">
+    </form>
+
+</div>
 
 
 <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
@@ -66,6 +73,14 @@
     </div>
   </div>
 </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="Innovation" class="container tab-pane fade" ><br>
+                {{ macro. displayComments(comment) }}
+        </div>
+      </div>
+    </div>
 </div>
 
 
