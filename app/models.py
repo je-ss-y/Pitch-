@@ -94,6 +94,7 @@ class Pitch(db.Model):
     __tablename__ = 'pitch'
     id = db.Column(db.Integer,primary_key = True)
     content = db.Column(db.String(255))
+    description = db.Column(db.String(255))
     # upvote = db.Column(db.String(255))
     # downvote = db.Column(db.String(255))
     category = db.Column(db.String(255))
