@@ -16,14 +16,14 @@ In context, your friends and peers are busy with their work , they also happen t
 ### Input
 
    -Sign in 
-   -Search of news
+   -Fill in form for pitch
    -Review
 
 ### Output
 
     -Personal Profile
-    -News sources
-    -Links to articles
+    -Display pitches
+    -User login email comfirmation
     -Review
 
 
