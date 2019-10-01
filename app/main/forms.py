@@ -4,7 +4,7 @@ from wtforms.validators import Required
 
 class CommentForm(FlaskForm):
 
-    name = StringField('Comment title',validators=[Required()])
+    # name = StringField('Comment title',validators=[Required()])
     content = TextAreaField('pitch comment', validators=[Required()])
     submit = SubmitField('Submit')
 
