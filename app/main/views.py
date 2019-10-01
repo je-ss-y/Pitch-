@@ -32,37 +32,25 @@ def index():
 
 
 
-# @main.route('/search/<movie_name>')
-# def search(movie_name):
-#     '''
-#     View function to display the search results
-#     '''
-#     movie_name_list = movie_name.split(" ")
-#     movie_name_format = "+".join(movie_name_list)
-#     searched_movies = search_movie(movie_name_format)
-#     title = f'search results for {movie_name}'
-#     return render_template('search.html',movies = searched_movies)
+@main.route('/comment/new/<int:pitch_id>', methods = ['GET','POST'])
+@login_required
+def new_comment(id):
 
+    form = CommentForm()
 
-# @main.route('/pitches/comment/new/<int:id>', methods = ['GET','POST'])
-# @login_required
-# def new_comment(id):
+    # pitch = Pitch.query.get(pitch_id)
 
-#     form = CommentForm()
+    if form.validate_on_submit():
+        content = form.content.data
 
-#     # pitch = get_movie(id)
+        new_comment = Comment(content= content, user_id = current_user._get_current_object().id, pitch_id = pitch_id)
+        db.session.add(new_comment)
+        db.session.commit()
 
-#     if form.validate_on_submit():
-#         description = form.description.data
-#         comment = form.comment.data
+        return redirect(url_for('.new_comment',pitch_id = pitch_id ))
 
-#         new_comment = Comment(title,description, content ,review)
-#         new_comment.save_comment()
-
-#         # return redirect(url_for('.movie',id = movie.id ))
-
-#     description = f'{pitch.description} comment'
-#     return render_template('new_comment.html',title = title, comment_form=form, pitch=pitch)
+    all_comments = Comment.query.filter_by(pitch_id = pitch_id).all()
+    return render_template('comment.html',form = form, comment = all_comments, pitch = pitch)
 
 @main.route('/pitches/new/', methods = ['GET','POST'])
 @login_required
@@ -96,6 +84,7 @@ def profile(uname):
 #     user = User.query.filter_by(username = uname).first()
 #     if user is None:
 #         abort(404)
+
 
 #     form = UpdateProfile()
 

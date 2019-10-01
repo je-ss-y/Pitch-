@@ -9,7 +9,13 @@
 {% endblock %}
 <!-- Content block -->
 {% block content %}
-
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-image">
+          <img src="../static/css/photos/tech.jpg">
+        </div>
+    </div>
+</div>
 <h1>
     <a style ="text-align: center; color:black"; id ="frm" class ="navbar-brand" href="/pitches/new/"> Pitch form </a>
 </h1>
@@ -44,45 +50,54 @@
       <a class="nav-link" data-toggle="tab" href="#innovation">Innovation</a>
     </li>
   </ul>
-  <div class="tab-content">
+  <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-12">
+          <div class="thumbnail text-center">
         <div id="Religion" class="container tab-pane active" ><br>
       {{ macro. displayCatList(Religion) }}
            </div>
        </div> 
     </div>
+  </div>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12">
+            <div class="thumbnail text-center">
          <div id="Politics" class="container tab-pane fade" ><br>
       {{ macro. displayCatList(Politics) }}
           </div>
         </div> 
      </div>
+    </div>
      <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12">
+            <div class="thumbnail text-center">
           <div id="Business" class="container tab-pane fade" ><br>
       {{ macro. displayCatList(Business)}}
            </div>
         </div>
     </div>
-    <div class="row">
-            <div class="col-md-3">
-    <div id="Innovation" class="container tab-pane fade" ><br>
-      {{ macro. displayCatList(Innovation) }}
-    </div>
   </div>
-</div>
+    <div class="row">
+      <div class="col-md-12">
+      <div class="thumbnail text-center">
+          <div id="Innovation" class="container tab-pane fade" ><br>
+            {{ macro. displayCatList(Innovation) }}
+         </div>
+      </div>
+    </div>
+   </div>
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-12">
+        <div class="thumbnail text-center">
         <div id="Innovation" class="container tab-pane fade" ><br>
                 {{ macro. displayComments(comment) }}
         </div>
       </div>
     </div>
 </div>
-
+</div>
 
 
 {% endblock%}

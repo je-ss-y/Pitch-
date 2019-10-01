@@ -2,49 +2,8 @@ from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
-# class Pitches:
-#     '''
-#     Movie class to define Pitches Objects
-#     '''
-
-#     def __init__(self,id,title,overview):
-#         self.id =id
-#         self.title = title
-#         self.overview = overview
-        # self.poster = "https://image.tmdb.org/t/p/w500/" + poster
-        # self.vote_average = vote_average
-        # self.vote_count = vote_count
 
 
-
-# class Comment(db.Model):
-
-#     all_comments = []
-
-#     def __init__(self,description,content,comment):
-#         self.pitch_id = pitch_id
-#         self.description = description
-#         self.comment = comment
-
-
-#     def save_comment(self):
-#         Comment.all_comments.append(self)
-
-
-#     @classmethod
-#     def clear_comment(cls):
-#         Comment.all_comments.clear()
-
-#     @classmethod
-#     def get_(cls,id):
-
-#         response = []
-
-#         for Comment in cls.all_comments:
-#             if comment.comment_id == id:
-#                 response.append(comment)
-
-#         return response
 
 class Role(db.Model):
     __tablename__ = 'roles'
@@ -67,6 +26,7 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
     pitch=db.relationship('Pitch',backref='users',lazy ="dynamic")
+    comments=db.relationship('Comment',backref='users',lazy ="dynamic")
 
     @property
     def password(self):
@@ -99,6 +59,11 @@ class Pitch(db.Model):
     category = db.Column(db.String(255))
 
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    comments = db.relationship('Comment', backref = 'pitch' , lazy = 'dynamic')
+
+    
+
+
 
     @classmethod
     def get_pitches(cls,id):
@@ -108,3 +73,23 @@ class Pitch(db.Model):
 
     def __repr__(self):
         return f'User {self.pitch}'
+
+
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer, primary_key = True)
+    name =  db.Column(db.String(15))
+    content = db.Column(db.String(100) )            
+    pitch_id = db.Column(db.Integer, db.ForeignKey('pitch.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+
+    def __repr__(self):
+       return f"Comment : id: {self.id} comment: {self.content}"
+
+
+
+
+
+

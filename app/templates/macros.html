@@ -10,12 +10,12 @@
                  </p>
                  <h3>Pitch</h3>
                 <p href="/category/{{category.id}}">
-                    {{   category.content|truncate(10)}}</p>
+                    {{   category.content|truncate}}</p>
                 </p>
 
                
         <!-- </div> -->
-
+        <a href="{{url_for('main.new_comment', pitch_id = category.id)}}" class="btn btn-info"> Add a comment</a>
     {% endfor %}
 
 {% endmacro %}
@@ -26,10 +26,9 @@
     {% for comment in comment_list %}
 
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
-        <h2> {{ comment.description}} </h2>
-        <p> {{ comment.comment | truncate(30) }}</p>
+        <h2> {{ comment.content}} </h2>
 
-
+<p>Posted by {{ comment.name }}</p>
 
 
     </div>
